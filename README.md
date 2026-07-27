@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
@@ -96,3 +97,8 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+=======
+# Tool-Sharing-Management-System-
+AIUB Summer 2026 - Advanced Web Tech 
+Contibutors: Anik , Zayed, Saimul , Sufian
+>>>>>>> 776034a1b0c030d07ce4e59d3f6edb649d969226
