@@ -1,5 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany } from 'typeorm';
 import { Tool } from '../../tools/entities/tool.entity';
 
 export enum UserRole {
@@ -8,34 +7,33 @@ export enum UserRole {
   BORROWER = 'Borrower',
 }
 
-@Entity()
+@Entity('users')
 export class User {
-
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
 
   @Column()
-  name: string;
+  name!: string;
 
   @Column({ unique: true })
-  email: string;
+  email!: string;
 
   @Column()
-  password: string;
+  password!: string;
+
+  @Column({ type: 'varchar', nullable: true })
+  phone!: string;
 
   @Column({
     type: 'enum',
     enum: UserRole,
     default: UserRole.BORROWER,
   })
-  role: UserRole;
+  role!: UserRole;
 
+  @CreateDateColumn()
+  created_at!: Date;
 
-  
-  @OneToMany(
-()=>Tool,
-tool=>tool.owner
-)
-tools:Tool[];
- 
+  @OneToMany(() => Tool, (tool) => tool.owner)
+  tools!: Tool[];
 }

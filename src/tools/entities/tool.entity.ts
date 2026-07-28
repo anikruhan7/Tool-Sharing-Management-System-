@@ -1,54 +1,26 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToOne,
-  CreateDateColumn,
-} from 'typeorm';
-
+import {Entity,PrimaryGeneratedColumn,Column,ManyToOne,CreateDateColumn,} from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 
-
-@Entity()
+@Entity('tools')
 export class Tool {
-
-
-  @PrimaryGeneratedColumn()
-  id:number;
-
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
 
   @Column()
-  tool_name:string;
-
-
-  @Column()
-  description:string;
-
+  tool_name!: string;
 
   @Column()
-  category:string;
+  description!: string;
 
+  @Column()
+  category!: string;
 
-  @Column({
-    default:true
-  })
-  availability:boolean;
+  @Column({ default: true })
+  availability!: boolean;
 
-
-
-  @ManyToOne(
-    ()=>User,
-    user=>user.tools,
-    {
-      eager:true
-    }
-  )
-  owner:User;
-
-
+  @ManyToOne(() => User, (user) => user.tools, { eager: true })
+  owner!: User;
 
   @CreateDateColumn()
-  created_at:Date;
-
-
+  created_at!: Date;
 }
