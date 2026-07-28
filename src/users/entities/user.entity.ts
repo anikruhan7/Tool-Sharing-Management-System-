@@ -1,4 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { OneToMany } from 'typeorm';
+import { Tool } from '../../tools/entities/tool.entity';
 
 export enum UserRole {
   ADMIN = 'Admin',
@@ -8,6 +10,7 @@ export enum UserRole {
 
 @Entity()
 export class User {
+
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -26,4 +29,13 @@ export class User {
     default: UserRole.BORROWER,
   })
   role: UserRole;
+
+
+  
+  @OneToMany(
+()=>Tool,
+tool=>tool.owner
+)
+tools:Tool[];
+ 
 }
