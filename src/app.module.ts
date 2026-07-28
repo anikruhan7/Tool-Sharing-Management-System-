@@ -10,7 +10,7 @@ import { UsersModule } from './users/users.module';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: '1234',
+      password: 'tiger',
       database: 'tool_sharing_db',
 
       autoLoadEntities: true,
