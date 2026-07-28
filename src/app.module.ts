@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
+import { BorrowRequestsModule } from './borrow-requests/borrow-requests.module';
+import { TransactionsModule } from './transactions/transactions.module';
 
 
 @Module({
@@ -10,13 +12,15 @@ import { UsersModule } from './users/users.module';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: '1234',
+      password: 'postgres',
       database: 'tool_sharing_db',
 
       autoLoadEntities: true,
       synchronize: true,
     }),
     UsersModule,
+    BorrowRequestsModule, 
+    TransactionsModule,  
   ],
 })
 export class AppModule {}
